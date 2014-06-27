@@ -69,6 +69,6 @@ class ChartsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def chart_params
-      params.require(:chart).permit(:name, :db_id, :query, :type)
+      params.require(:chart).permit(:name, :db_id, :query, :timing)
     end
 end

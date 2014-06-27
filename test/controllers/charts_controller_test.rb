@@ -18,7 +18,7 @@ class ChartsControllerTest < ActionController::TestCase
 
   test "should create chart" do
     assert_difference('Chart.count') do
-      post :create, chart: { db_id: @chart.db_id, name: @chart.name, query: @chart.query, type: @chart.type }
+      post :create, chart: { db_id: @chart.db_id, name: @chart.name, query: @chart.query, timing: @chart.timing }
     end
 
     assert_redirected_to chart_path(assigns(:chart))
@@ -35,7 +35,7 @@ class ChartsControllerTest < ActionController::TestCase
   end
 
   test "should update chart" do
-    patch :update, id: @chart, chart: { db_id: @chart.db_id, name: @chart.name, query: @chart.query, type: @chart.type }
+    patch :update, id: @chart, chart: { db_id: @chart.db_id, name: @chart.name, query: @chart.query, timing: @chart.timing }
     assert_redirected_to chart_path(assigns(:chart))
   end
 

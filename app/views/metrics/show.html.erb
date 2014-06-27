@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Chart:</strong>
+  <%= @metric.chart_id %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @metric.time %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @metric.value %>
+</p>
+
+<%= link_to 'Edit', edit_metric_path(@metric) %> |
+<%= link_to 'Back', metrics_path %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :metrics
+
   resources :charts
 
   resources :databases

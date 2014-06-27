@@ -4,10 +4,10 @@ one:
   name: MyString
   db_id: 1
   query: MyString
-  type: 1
+  timing: 1
 
 two:
   name: MyString
   db_id: 1
   query: MyString
-  type: 1
+  timing: 1

@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140627144222) do
+ActiveRecord::Schema.define(version: 20140627231543) do
 
   create_table "charts", force: true do |t|
     t.string   "name"
     t.integer  "db_id"
     t.string   "query"
-    t.integer  "type"
+    t.integer  "timing"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(version: 20140627144222) do
   create_table "databases", force: true do |t|
     t.integer  "type"
     t.string   "db_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "metrics", force: true do |t|
+    t.integer  "chart_id"
+    t.datetime "time"
+    t.decimal  "value",      precision: 10, scale: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

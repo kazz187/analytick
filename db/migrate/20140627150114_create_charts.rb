@@ -4,7 +4,7 @@ class CreateCharts < ActiveRecord::Migration
       t.string :name
       t.integer :db_id
       t.string :query
-      t.integer :type
+      t.integer :timing
 
       t.timestamps
     end
