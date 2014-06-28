@@ -22,3 +22,45 @@
 
 <%= link_to 'Edit', edit_chart_path(@chart) %> |
 <%= link_to 'Back', charts_path %>
+<div id="container">
+</div>
+<script>
+$(function () {
+    $('#container').highcharts({
+      chart: {
+        width:500,
+        heigth:300
+      },
+      title: {
+        text: '<%= @chart.name %>',
+        x: -20 //center
+      },
+      xAxis: {
+        categories: <%=raw @chart.metrics.map{|m|m.time}.to_json %>
+      },
+      yAxis: {
+        title: {
+          text: 'Users'
+        },
+        plotLines: [{
+          value: 0,
+          width: 1,
+          color: '#808080'
+        }]
+      },
+      tooltip: {
+        valueSuffix: ''
+      },
+      legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle',
+        borderWidth: 0
+      },
+      series: [{
+        name: 'Users',
+        data: <%= @chart.metrics.map{|m|m.value}.to_json %>
+      }]
+    });
+  });
+</script>

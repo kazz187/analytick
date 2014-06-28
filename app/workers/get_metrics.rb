@@ -20,16 +20,15 @@ class GetMetrics
         m.value = result
       end
       metrics << metric
+      metric.save
       time += 1.day
     end while time <= end_time
-    slice_import(metrics, {on_duplicate_key_update: [:chart_id, :time, :value]}, 100)
+    #slice_import(metrics, {on_duplicate_key_update: [:chart_id, :time, :value]}, 100)
   end
 
   def mongo(db, query_template, time)
     query = create_mongo_query(query_template, time)
-logger.info time 
     result = `mongo #{db} --quiet --eval '#{query}'`
-    logger.info result
     result
   end
   
@@ -38,7 +37,7 @@ logger.info time
     time -= time.min.minutes
     time -= time.sec.seconds
 
-    func_list = query_template.scan /__([A-Z]+)\(([0-9]+)\)__/
+    func_list = query_template.scan /__([A-Z]+)\((-?[0-9]+)\)__/
     query = Marshal.load(Marshal.dump(query_template))
     func_list.uniq.each do |func|
       query.gsub!("__#{func[0]}(#{func[1]})__", "ISODate(\"#{(time + func[1].to_i.day).iso8601}\")")
