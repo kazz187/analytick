@@ -3,7 +3,7 @@
 <table>
   <thead>
     <tr>
-      <th>Type</th>
+      <th>Db type</th>
       <th>Db name</th>
       <th colspan="3"></th>
     </tr>
@@ -12,7 +12,7 @@
   <tbody>
     <% @databases.each do |database| %>
       <tr>
-        <td><%= database.type %></td>
+        <td><%= database.db_type %></td>
         <td><%= database.db_name %></td>
         <td><%= link_to 'Show', database %></td>
         <td><%= link_to 'Edit', edit_database_path(database) %></td>

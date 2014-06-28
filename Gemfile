@@ -40,3 +40,13 @@ gem 'spring',        group: :development
 
 #gem 'mongoid', github: 'mongoid/mongoid'
 #gem 'bson_ext'
+
+gem 'sidekiq'
+gem 'rb-readline'
+
+# composite_primary_keys
+gem 'composite_primary_keys', github: 'composite-primary-keys/composite_primary_keys', branch: 'master'
+
+# multiple insert
+gem 'activerecord-import', github: 'zdennis/activerecord-import', branch: 'master'
+

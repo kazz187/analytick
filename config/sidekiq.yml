@@ -1,0 +1,9 @@
+---
+:verbose: false
+:pidfile: ./tmp/pids/sidekiq.pid
+:logfile: ./log/sidekiq.log
+:concurrency: 1
+production:
+  :concurrency: 3
+:queues:
+  - analytick

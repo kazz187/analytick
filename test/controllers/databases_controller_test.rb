@@ -18,7 +18,7 @@ class DatabasesControllerTest < ActionController::TestCase
 
   test "should create database" do
     assert_difference('Database.count') do
-      post :create, database: { db_name: @database.db_name, type: @database.type }
+      post :create, database: { db_name: @database.db_name, db_type: @database.db_type }
     end
 
     assert_redirected_to database_path(assigns(:database))
@@ -35,7 +35,7 @@ class DatabasesControllerTest < ActionController::TestCase
   end
 
   test "should update database" do
-    patch :update, id: @database, database: { db_name: @database.db_name, type: @database.type }
+    patch :update, id: @database, database: { db_name: @database.db_name, db_type: @database.db_type }
     assert_redirected_to database_path(assigns(:database))
   end
 
